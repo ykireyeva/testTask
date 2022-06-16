@@ -20,19 +20,19 @@ public class ProductPage extends BaseSeleniumPage {
         PageFactory.initElements(driver, this);
     }
 
-    public MainPage addToCart(){
+    public void addToCart() {
         boolean staleElement = true;
-        while(staleElement){
-            try{
+        while (staleElement) {
+            try {
                 btnBuy.click();
                 btnCloseCart.click();
                 rozetkaLogo.click();
                 staleElement = false;
 
-            } catch(StaleElementReferenceException e) {
+            } catch (StaleElementReferenceException e) {
                 staleElement = true;
             }
         }
-        return new MainPage();
+        new MainPage();
     }
 }

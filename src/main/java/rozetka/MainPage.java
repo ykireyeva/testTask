@@ -21,20 +21,19 @@ public class MainPage extends BaseSeleniumPage {
         PageFactory.initElements(driver, this);
     }
 
-    public ProductPage search(String searchValue){
+    public void search(String searchValue) {
         input.click();
         input.sendKeys(searchValue);
         searchButton.click();
-        return new ProductPage();
+        new ProductPage();
     }
 
-    public void goToCart(){
+    public void goToCart() {
         btnCart.click();
         try {
             driver.findElement(By.xpath("//div[contains(@class,'sum-price')]"));
             System.out.println("The product was added to cart");
-        }
-        catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             System.out.println("The cart is empty");
         }
     }
