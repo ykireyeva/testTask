@@ -1,6 +1,7 @@
 package rozetka;
 
 import core.BaseSeleniumPage;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,7 +30,7 @@ public class ProductPage extends BaseSeleniumPage {
                 rozetkaLogo.click();
                 staleElement = false;
 
-            } catch (StaleElementReferenceException e) {
+            } catch (StaleElementReferenceException | ElementClickInterceptedException e) {
                 staleElement = true;
             }
         }
